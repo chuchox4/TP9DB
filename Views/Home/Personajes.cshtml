@@ -1,0 +1,70 @@
+@foreach(Personaje PersonajeActual in @ViewBag.listaPersonajes)
+{ 
+  <table class="table">
+  <thead>
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Genero</th>
+      <th scope="col">Fecha de nacimiento</th>
+      <th scope="col">Edad</th>
+      <th scope="col">Raza</th>
+      <th scope="col">Poder</th>
+      <th scope="col">Planeta</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>@PersonajeActual.FotoPersonaje</td>
+      <td>@PersonajeActual.Nombre</td>
+      <td>@PersonajeActual.Genero</td>
+      <td>@PersonajeActual.FechaNacimiento</td>
+      <td>@PersonajeActual.Edad</td>
+      <td>@PersonajeActual.Raza</td>
+      <td>@PersonajeActual.Poder</td>
+      <td>@PersonajeActual.NombrePlaneta</td>
+      <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#ModalHabilidad" onclick="VerListaHabilidad(@PersonajeActual.IdPersonaje)">Habilidades</button>
+      <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#ModalTransformacion" onclick="VerListaTransformacion(@PersonajeActual.IdPersonaje)">Transformaciones</button>
+      <a href='@Url.Action("EliminarPersonaje","Home", new {IdPersonaje=@ViewBag.Personaje.IdPersonaje, IdPersonaje=@PersonajeActual.IdPersonaje})'class="btn btn-danger">Eliminar Personaje</a>
+         
+}
+  </div>
+  <div class="modal fade" id="ModalHabilidad" tabindex="-1" role="dialog" aria-labelledby="ModalHabilidad" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="Titulo"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-dark" id ="DescripcionHabilidad">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+
+ </div>
+  <div class="modal fade" id="ModalTransformacion" tabindex="-1" role="dialog" aria-labelledby="ModalTransformacion" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title text-dark" id="Titulo"></h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body text-dark" id ="DescripcionTransformacion">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</body>

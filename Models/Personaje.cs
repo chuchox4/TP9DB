@@ -21,14 +21,17 @@ public class Personaje
 
     public int _IdPlaneta;
 
+    public string _NombrePlaneta;
+
   
 
-    public Personaje(){
+    public Personaje()
+    {
 
     }
 
 
-    public Personaje(int IdPersonaje, string FotoPersonaje,  string Nombre, string Genero, DateTime FechaNacimiento,  int Edad, int Poder, string Raza, int IdPlaneta){
+    public Personaje(int IdPersonaje, string FotoPersonaje,  string Nombre, string Genero, DateTime FechaNacimiento,  int Edad, int Poder, string Raza, int IdPlaneta, string NombrePlaneta){
 
         _IdPersonaje = IdPersonaje;
         _FotoPersonaje = FotoPersonaje;
@@ -39,6 +42,7 @@ public class Personaje
         _Poder = Poder;
         _Raza = Raza;
         _IdPlaneta = IdPlaneta;
+        _NombrePlaneta = NombrePlaneta
 
     }
 
@@ -83,6 +87,11 @@ public class Personaje
     public int IdPlaneta{
         set{_IdPlaneta = value;}
         get{return _IdPlaneta;}
+    }
+
+     public int NombrePlaneta{
+        set{_NombrePlaneta = value;}
+        get{return _NombrePlaneta;}
     }
 
 
