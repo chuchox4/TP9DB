@@ -23,6 +23,19 @@ public class HomeController : Controller
         return View();
     }
 
+       public IActionResult AgregarPersonaje(int IdSaga)
+        {
+            ViewBag.Saga = IdSaga;
+            return View("AgregarPersonaje");
+        }
+
+        public IActionResult EliminarPersonaje(int IdPersonaje, int IdSaga)
+        {
+
+            return View();
+
+        }
+
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()
     {

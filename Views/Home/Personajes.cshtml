@@ -24,9 +24,9 @@
       <td>@PersonajeActual.Raza</td>
       <td>@PersonajeActual.Poder</td>
       <td>@PersonajeActual.NombrePlaneta</td>
+  </table>
       <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#ModalHabilidad" onclick="VerListaHabilidad(@PersonajeActual.IdPersonaje)">Habilidades</button>
       <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#ModalTransformacion" onclick="VerListaTransformacion(@PersonajeActual.IdPersonaje)">Transformaciones</button>
-      <a href='@Url.Action("EliminarPersonaje","Home", new {IdPersonaje=@ViewBag.Personaje.IdPersonaje, IdPersonaje=@PersonajeActual.IdPersonaje})'class="btn btn-danger">Eliminar Personaje</a>
          
 }
   </div>

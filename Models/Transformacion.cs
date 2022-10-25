@@ -22,6 +22,10 @@ public class Transformacion{
     _MultiplicadorPoder = MultiplicadorPoder;
     _IdPersonaje = IdPersonaje;
     }
+    public Transformacion ()
+    {
+
+    }
 
     public int IdTransformacion{
         set{_IdTransformacion = value;}

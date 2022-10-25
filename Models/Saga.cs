@@ -33,7 +33,7 @@ public int IdSaga{
     get{return _IdSaga;}
 }
 
-public string Foto{
+public string FotoSaga{
     set{_FotoSaga = value;}
     get{return _FotoSaga;}
 }

@@ -21,6 +21,8 @@ public class Personaje
 
     public int _IdPlaneta;
 
+    public int _IdSaga;
+
     public string _NombrePlaneta;
 
   
@@ -31,7 +33,7 @@ public class Personaje
     }
 
 
-    public Personaje(int IdPersonaje, string FotoPersonaje,  string Nombre, string Genero, DateTime FechaNacimiento,  int Edad, int Poder, string Raza, int IdPlaneta, string NombrePlaneta){
+    public Personaje(int IdPersonaje, string FotoPersonaje,  string Nombre, string Genero, DateTime FechaNacimiento,  int Edad, int Poder, string Raza, int IdPlaneta,int IdSaga, string NombrePlaneta){
 
         _IdPersonaje = IdPersonaje;
         _FotoPersonaje = FotoPersonaje;
@@ -42,7 +44,8 @@ public class Personaje
         _Poder = Poder;
         _Raza = Raza;
         _IdPlaneta = IdPlaneta;
-        _NombrePlaneta = NombrePlaneta
+        _IdSaga = IdSaga;
+        _NombrePlaneta = NombrePlaneta;
 
     }
 
@@ -50,7 +53,7 @@ public class Personaje
         set{_IdPersonaje = value;}
         get{return _IdPersonaje;}
     }
-    public string Foto{
+    public string FotoPersonaje{
     set{_FotoPersonaje = value;}
     get{return _FotoPersonaje;}
 }
@@ -88,8 +91,12 @@ public class Personaje
         set{_IdPlaneta = value;}
         get{return _IdPlaneta;}
     }
+    public int IdSaga{
+        set{_IdSaga = value;}
+        get{return _IdSaga;}
+    }
 
-     public int NombrePlaneta{
+     public string NombrePlaneta{
         set{_NombrePlaneta = value;}
         get{return _NombrePlaneta;}
     }
