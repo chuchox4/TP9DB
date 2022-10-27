@@ -53,7 +53,6 @@ public string Villano{
     get{return _Villano;}
 }
 
-
 public string Heroe{
     set{_Heroe = value;}
     get{return _Heroe;}

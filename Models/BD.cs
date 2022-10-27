@@ -9,14 +9,14 @@ namespace TP9DB
 {
     public class  BD
     {
-        private static string _connectionString = @"Server=A-PHZ2-CIDI-006; DataBase=BDTP9DBZ;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=A-PHZ2-CIDI-006; DataBase=BDDBTP9;Trusted_Connection=True;";
     
 
         public static void AgregarPersonaje(Personaje Per)
         {
             using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "INSERT INTO Personaje(FotoPersonaje,Nombre,Genero,FechaNacimiento,Edad,Poder,Raza,IdPlaneta,IdSaga) VALUES(@FotoPersonaje,@Nombre,@Genero,@FechaNacimiento,@Edad,@Poder,@Raza,@IdPlaneta,@IdSaga)  ";
-            db.Execute(sql, new {@FotoPersonaje = Per.FotoPersonaje, @Nombre = Per.Nombre, @Genero = Per.Genero, @FechaNacimiento = Per.FechaNacimiento, @Edad = Per.Edad, @Poder = Per.Poder, @Raza = Per.Raza, @IdPlaneta = Per.IdPlaneta, @IdSaga = Per.IdSaga});
+            string sql = "INSERT INTO Personaje(FotoPersonaje,Nombre,Genero,FechaNacimiento,Edad,Poder,Raza,IdPlaneta,IdSaga,NombrePlaneta) VALUES(@FotoPersonaje,@Nombre,@Genero,@FechaNacimiento,@Edad,@Poder,@Raza,@IdPlaneta,@IdSaga,@NombrePlaneta)  ";
+            db.Execute(sql, new {@FotoPersonaje = Per.FotoPersonaje, @Nombre = Per.Nombre, @Genero = Per.Genero, @FechaNacimiento = Per.FechaNacimiento, @Edad = Per.Edad, @Poder = Per.Poder, @Raza = Per.Raza, @IdPlaneta = Per.IdPlaneta, @IdSaga = Per.IdSaga, @NombrePlaneta = Per.NombrePlaneta});
             } 
         }
         private static List<Saga>_ListaSagas = new List<Saga>();
@@ -89,14 +89,7 @@ namespace TP9DB
            }
            return MiSaga;
         }
-        public static Personaje VerInfoPersonaje(int IdPersonaje)
-        {
-            Personaje MiPersonaje = null;
-            using (SqlConnection db = new SqlConnection(_connectionString)){
-            string sql = "SELECT * FROM Personaje WHERE IdPersonaje = @IdPersonaje";
-            MiPersonaje = db.QueryFirstOrDefault<Personaje>(sql, new{@IdPersonaje = IdPersonaje});
-           }
-           return MiPersonaje;
+
         }
 
           public static Habilidad VerInfoHabilidades(int IdPersonaje)
@@ -127,5 +120,4 @@ namespace TP9DB
         }
 
 
-}
 }
