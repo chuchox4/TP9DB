@@ -1,7 +1,7 @@
 <body>
 @foreach(Personaje PersonajeActual in @ViewBag.listaPersonajes)
 { 
-  <table class="table">
+  <table class="table table-bordered table-hover table-dark" style="color: white;">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -13,8 +13,8 @@
       <th scope="col">Raza</th>
       <th scope="col">Poder</th>
       <th scope="col">Planeta</th>
-      <th scope="col"></th>
-      <th scope="col"></th>
+      <th scope="col">Habilidades</th>
+      <th scope="col">Transformaciones</th>
     </tr>
   </thead>
   <tbody>
@@ -30,7 +30,9 @@
       <td>@PersonajeActual.NombrePlaneta</td>
       <td><button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#ModalHabilidad" onclick="VerListaHabilidad(@PersonajeActual.IdPersonaje)">Habilidades</button></td>
       <td><button type="button" class="btn btn-success"  data-toggle="modal" data-target="#ModalTransformacion" onclick="VerListaTransformacion(@PersonajeActual.IdPersonaje)">Transformaciones</button></td>
-  </table>
+      <td><button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#ModalHabilidad" onclick="VerListaHabilidad(@PersonajeActual.IdPersonaje)">Modificar</button></td>
+      <td><a href='@Url.Action("EliminarPersonaje","Home", new {IdSaga=@ViewBag.idSaga, IdPersonaje = @PersonajeActual.IdPersonaje})'class="btn btn-danger">Eliminar</a></td>  
+</table>
 
 }
   <a href='@Url.Action("AgregarPersonaje","Home", new {IdSaga=@ViewBag.idSaga})' class="btn btn-primary">Agregar Jugador</a>

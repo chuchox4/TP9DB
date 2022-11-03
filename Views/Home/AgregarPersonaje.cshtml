@@ -27,7 +27,12 @@
       <label for="inputPlaneta">Planeta</label>
       <select id="inputPlaneta" class="form-control">
         <option selected>Elegir</option>
-        <option>...</option>
+          @foreach(Planeta opcionPlaneta in @ViewBag.listaPlanetas)
+          {
+           <option>
+            @opcionPlaneta.Nombre
+           </option>
+          }
       </select>
   <div class="form-group">
     <label for="exampleFormControlFile1">Cargar Foto</label>

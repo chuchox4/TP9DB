@@ -30,10 +30,11 @@ public class HomeController : Controller
  
     public IActionResult AgregarPersonaje(int IdSaga)
      {
-        ViewBag.Saga = IdSaga;
+         ViewBag.listaPlanetas = BD.TraerPlanetas();
+        ViewBag.idSaga = IdSaga;
         return View("AgregarPersonaje");
      }
-     public IActionResult GuardarJugador(Personaje Per, IFormFile ArchivoFoto)
+     public IActionResult GuardarPersonaje(Personaje Per, IFormFile ArchivoFoto)
         {   
             if (ArchivoFoto.Length>0)
             {

@@ -13,6 +13,11 @@ public class Planeta{
 
     public string _Informacion;
 
+    public Planeta()
+    {
+        
+    }
+
     public Planeta(int IdPlaneta, string FotoPlaneta, string Nombre, string RazaHabitante, string Informacion){
         _IdPlaneta = IdPlaneta;
         _FotoPlaneta = FotoPlaneta;

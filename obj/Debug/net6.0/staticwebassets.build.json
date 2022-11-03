@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "eFUkGd3Ux5JYW57sGFlPOUgW2AZ7z1Q+C8h+xxnIdbk=",
+  "Hash": "VQyU8B3b6x2hA/G3nmCmH1W35leB0JOOy/Dw8hymmLs=",
   "Source": "TP9",
   "BasePath": "_content/TP9",
   "Mode": "Default",
@@ -1120,6 +1120,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\logo.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\46916288\\Desktop\\TP9DB\\wwwroot\\Sayian1.jpg",
+      "SourceId": "TP9",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\46916288\\Desktop\\TP9DB\\wwwroot\\",
+      "BasePath": "_content/TP9",
+      "RelativePath": "Sayian1.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Sayian1.jpg"
     }
   ]
 }

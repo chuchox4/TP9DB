@@ -9,7 +9,7 @@ namespace TP9.Models
 {
     public static class BD
     {
-        private static string _connectionString = @"Server=A-PHZ2-CIDI-037; DataBase=BDDBTP9;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=A-PHZ2-CIDI-016; DataBase=BDDBTP9;Trusted_Connection=True;";
 
 
         public static void AgregarPersonaje(Personaje Per)
@@ -34,7 +34,7 @@ namespace TP9.Models
         public static List<Personaje> ListarPersonajes(int IdSaga)
         {
             List<Personaje> _ListaPersonajes = new List<Personaje>();
-            string sql = "SELECT * FROM Personaje INNER JOIN Planeta ON 1 = 1 WHERE IdSaga = @IdSaga";
+            string sql = "SELECT * FROM Personaje INNER JOIN Planeta ON Planeta.IdPlaneta = Personaje.IdPlaneta WHERE IdSaga = @IdSaga";
             using (SqlConnection db = new SqlConnection(_connectionString))
             {
                 _ListaPersonajes = db.Query<Personaje>(sql, new { @IdSaga = IdSaga }).ToList();
