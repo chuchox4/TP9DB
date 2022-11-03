@@ -1,27 +1,31 @@
 ﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
+using System.IO;
+using Microsoft.AspNetCore.Hosting;
 using TP9.Models;
 
 namespace TP9.Controllers;
 
 public class HomeController : Controller
 {
-    private readonly ILogger<HomeController> _logger;
+    private IWebHostEnvironment Environment;
 
-    public HomeController(ILogger<HomeController> logger)
+    public HomeController(IWebHostEnvironment environment)
     {
-        _logger = logger;
+        Environment = environment;
     }
 
     public IActionResult Index()
     {
-        viewBag.listaSagas = BD.ListarSagas();
+        ViewBag.listaSagas = BD.ListarSagas();
         return View();
     }
-    public IActionResult VerPersonajes(int IdSaga)
+    public IActionResult VerPersonajes(int IdSaga, int IdPersonaje)
     {
+        //BD.GetPersonajeById(IdPersonaje);
+        ViewBag.idSaga = IdSaga;
       ViewBag.listaPersonajes = BD.ListarPersonajes(IdSaga);
-      return View("Personajes");
+      return View("Personajes"); 
     }
  
     public IActionResult AgregarPersonaje(int IdSaga)
@@ -53,19 +57,19 @@ public class HomeController : Controller
         ViewBag.listaJugadores = BD.ListarPersonajes(IdSaga);
         return View();
      }
-    public Sagas verInfoSagasAjax(int IdSaga)
+    public Saga VerInfoSagasAjax(int IdSaga)
         {
 
         return BD.VerInfoSagas(IdSaga); 
 
         }
-        public Sagas verHabilidadesAjax(int IdPersonaje)
+        public Habilidad VerHabilidadesAjax(int IdPersonaje)
         {
 
         return BD.VerInfoHabilidades(IdPersonaje); 
 
         }
-        public Sagas verTransformacionesAjax(int IdPersonaje)
+        public Transformacion VerTransformacionesAjax(int IdPersonaje)
         {
 
         return BD.VerInfoTransformaciones(IdPersonaje); 

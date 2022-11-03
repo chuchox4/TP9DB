@@ -1,9 +1,11 @@
+<body>
 @foreach(Personaje PersonajeActual in @ViewBag.listaPersonajes)
 { 
   <table class="table">
   <thead>
     <tr>
-      <th scope="col"></th>
+      <th scope="col">#</th>
+      <th scope="col">😎</th>
       <th scope="col">Nombre</th>
       <th scope="col">Genero</th>
       <th scope="col">Fecha de nacimiento</th>
@@ -11,25 +13,28 @@
       <th scope="col">Raza</th>
       <th scope="col">Poder</th>
       <th scope="col">Planeta</th>
+      <th scope="col"></th>
+      <th scope="col"></th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <th scope="row">1</th>
-      <td>@PersonajeActual.FotoPersonaje</td>
+      <th scope="row">@PersonajeActual.IdPersonaje</th>
+      <td><img src="/@PersonajeActual.FotoPersonaje" ></td>
       <td>@PersonajeActual.Nombre</td>
       <td>@PersonajeActual.Genero</td>
-      <td>@PersonajeActual.FechaNacimiento</td>
+      <td>@PersonajeActual.FechaNacimiento.ToShortDateString()</td>
       <td>@PersonajeActual.Edad</td>
       <td>@PersonajeActual.Raza</td>
       <td>@PersonajeActual.Poder</td>
       <td>@PersonajeActual.NombrePlaneta</td>
+      <td><button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#ModalHabilidad" onclick="VerListaHabilidad(@PersonajeActual.IdPersonaje)">Habilidades</button></td>
+      <td><button type="button" class="btn btn-success"  data-toggle="modal" data-target="#ModalTransformacion" onclick="VerListaTransformacion(@PersonajeActual.IdPersonaje)">Transformaciones</button></td>
   </table>
-      <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#ModalHabilidad" onclick="VerListaHabilidad(@PersonajeActual.IdPersonaje)">Habilidades</button>
-      <button type="button" class="btn btn-success"  data-toggle="modal" data-target="#ModalTransformacion" onclick="VerListaTransformacion(@PersonajeActual.IdPersonaje)">Transformaciones</button>
-         
+
 }
-  </div>
+  <a href='@Url.Action("AgregarPersonaje","Home", new {IdSaga=@ViewBag.idSaga})' class="btn btn-primary">Agregar Jugador</a>
+</body>
   <div class="modal fade" id="ModalHabilidad" tabindex="-1" role="dialog" aria-labelledby="ModalHabilidad" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -39,7 +44,10 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body text-dark" id ="DescripcionHabilidad">
+      <div class="modal-body text-dark" >
+      <img class="img-fluid" id="fotoHabilidad">
+      <div id="Nombre"></div>
+      <div id="Tipo"></div>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
@@ -47,9 +55,7 @@
     </div>
   </div>
 </div>
-</body>
 
- </div>
   <div class="modal fade" id="ModalTransformacion" tabindex="-1" role="dialog" aria-labelledby="ModalTransformacion" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -67,4 +73,4 @@
     </div>
   </div>
 </div>
-</body>
+

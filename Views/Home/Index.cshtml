@@ -1,9 +1,9 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
 }
-<body>
+<body class = "bodyHome">
 <div class="text-center">
-    <h1 class="display-4"><img class ="logo"src="/logo.jpg" style="border: 2px solid red; border-radius: 50% ; margin-right: 5%">Bienvenido a WikiDB</h1>
+    <h1 class="display-4"><img class ="logo"src="/logo.jpg" style="margin-right: 5%">Bienvenido a WikiDB</h1>
     <h2 style="font-family: Georgia, serif;">🔥Todas las sagas de Dragon Ball🔥</h2>
 </div>
 <div class="container-fluid p-5" style="background-color: rgba(73, 5, 5, 0.6);;">
@@ -12,12 +12,13 @@
 @foreach(Saga SagaActual in @ViewBag.listaSagas)
 { 
          <div class= "col-sm-6 mt-4">   
-          <div class="card" style="background-color: black;">
+          <div class="card" style="background-color: black; color: white;">
             <img class="card-img-top" src="@SagaActual.FotoSaga" alt="">
               <div class="card-body">
                 <h5 class="card-title">@SagaActual.Nombre</h5>
-                <p class="card-text">Heroe: @SagaActual.Heroe       Villano: @SagaActual.Villano <br/>            Año: @SagaActual.Año</p>
-                <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#ModalSaga" onclick="VerTemporadas(@SagaActual.IdSaga)">Información</button>
+                <p class="card-text">Heroe: @SagaActual.Heroe  <br/>      Villano: @SagaActual.Villano <br/>            Año: @SagaActual.Año.ToShortDateString()</p>
+                <button type="button" class="btn btn-danger"  data-toggle="modal" data-target="#ModalSaga" onclick="VerInfoSagas(@SagaActual.IdSaga)">Información</button>
+                <td><a href='@Url.Action("VerPersonajes","Home", new {IdSaga=@SagaActual.IdSaga})' class="btn btn-warning">Ver personajes</a></td>
               </div>
             </div>
          </div>   

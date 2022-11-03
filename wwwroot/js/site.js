@@ -1,5 +1,6 @@
 ﻿function VerInfoSagas(IDS) 
 {
+    
     $.ajax({
         url: '/Home/VerInfoSagasAjax',
         data: {IdSaga : IDS},
@@ -10,7 +11,6 @@
             {
                 $("#Titulo").html("Info: ")
                 $("#DescripcionSaga").html("Informacion: " + response.informacion);
-
             }
     
     })
@@ -26,6 +26,7 @@ function VerHabilidades(IDP)
         success:
             function(response)
             {
+                alert("chambiroide "+ response.nombre);
                 var datos = "";
                 response.forEach(habilidad => {
                     datos += '<li> Habilidades ' + habilidad.nombre + '</li>'; 
