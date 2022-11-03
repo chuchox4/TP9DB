@@ -9,7 +9,7 @@ namespace TP9.Models
 {
     public static class BD
     {
-        private static string _connectionString = @"Server=A-PHZ2-CIDI-016; DataBase=BDDBTP9;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=A-PHZ2-LUM-07; DataBase=BDDBTP9;Trusted_Connection=True;";
 
 
         public static void AgregarPersonaje(Personaje Per)
@@ -124,6 +124,24 @@ namespace TP9.Models
             using (SqlConnection db = new SqlConnection(_connectionString))
             {
                 string sql = "DELETE FROM Personaje WHERE IdPersonaje = @IdPersonaje";
+                db.Execute(sql, new { @IdPersonaje = IdPersonaje });
+            }
+        }
+
+         public static void EliminarHabilidadesPersonajes(int IdPersonaje)
+        {
+            using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "DELETE FROM Habilidad WHERE IdPersonaje = @IdPersonaje";
+                db.Execute(sql, new { @IdPersonaje = IdPersonaje });
+            }
+        }
+
+         public static void EliminarTransformacionesPersonajes(int IdPersonaje)
+        {
+            using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "DELETE FROM Transformacion WHERE IdPersonaje = @IdPersonaje";
                 db.Execute(sql, new { @IdPersonaje = IdPersonaje });
             }
         }

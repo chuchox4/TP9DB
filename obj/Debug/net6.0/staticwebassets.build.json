@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "VQyU8B3b6x2hA/G3nmCmH1W35leB0JOOy/Dw8hymmLs=",
+  "Hash": "CLCTqY2K6z3/z5SxDKr53jzg0vLdGX7Lh0/F6rU84Cw=",
   "Source": "TP9",
   "BasePath": "_content/TP9",
   "Mode": "Default",
@@ -134,6 +134,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\site.js"
+    },
+    {
+      "Identity": "C:\\Users\\46916288\\Desktop\\TP9DB\\wwwroot\\Kamehameha.gif",
+      "SourceId": "TP9",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\46916288\\Desktop\\TP9DB\\wwwroot\\",
+      "BasePath": "_content/TP9",
+      "RelativePath": "Kamehameha.gif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Kamehameha.gif"
     },
     {
       "Identity": "C:\\Users\\46916288\\Desktop\\TP9DB\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",

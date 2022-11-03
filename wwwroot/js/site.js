@@ -16,7 +16,7 @@
     })
 }
 
-function VerHabilidades(IDP) 
+function VerHabilidadesAjax(IDP) 
 {
     $.ajax({
         url: '/Home/VerHabilidadesAjax',
@@ -26,21 +26,20 @@ function VerHabilidades(IDP)
         success:
             function(response)
             {
-                alert("chambiroide "+ response.nombre);
-                var datos = "";
+                let html = "";
                 response.forEach(habilidad => {
-                    datos += '<li> Habilidades ' + habilidad.nombre + '</li>'; 
-                    datos += '<img src="' + habilidad.fotoHabilidad + '">';
-                    datos += '<li>' + habilidad.tipo + '</li>'
+                    html += "<img src=/" + habilidad.fotoHabilidad + ">";
+                    html += "<p>Nombre: "+ habilidad.nombre + "</p>";
+                    html += "<p>Tipo: " + habilidad.tipo + "</p>";
                 });
-                $("#Titulo").html("Habilidades: ")
-                $("#DescripcionHabilidad").html(datos);
+                $("#TextoModalHabilidades").html(html);
+            
             }
     
     })
 }
 
-function VerTransformaciones(IDP) 
+function VerTransformacionesAjax(IDP) 
 {
     $.ajax({
         url: '/Home/VerTransformacionesAjax',

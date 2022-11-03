@@ -31,7 +31,7 @@ public class HomeController : Controller
     public IActionResult AgregarPersonaje(int IdSaga)
      {
          ViewBag.listaPlanetas = BD.TraerPlanetas();
-        ViewBag.idSaga = IdSaga;
+         ViewBag.idSaga = IdSaga;
         return View("AgregarPersonaje");
      }
      public IActionResult GuardarPersonaje(Personaje Per, IFormFile ArchivoFoto)
@@ -54,6 +54,8 @@ public class HomeController : Controller
     public IActionResult EliminarPersonaje(int IdPersonaje, int IdSaga)
     {
         BD.EliminarPersonaje(IdPersonaje);
+        BD.EliminarHabilidadesPersonajes(IdPersonaje);
+        BD.EliminarTransformacionesPersonajes(IdPersonaje);
         ViewBag.detalleSagas = BD.VerInfoSagas(IdSaga);
         ViewBag.listaJugadores = BD.ListarPersonajes(IdSaga);
         return View();
@@ -64,16 +66,15 @@ public class HomeController : Controller
         return BD.VerInfoSagas(IdSaga); 
 
         }
-        public Habilidad VerHabilidadesAjax(int IdPersonaje)
+        public List<Habilidad> VerHabilidadesAjax(int IdPersonaje)
         {
-
-        return BD.VerInfoHabilidades(IdPersonaje); 
+            return BD.ListarHabilidades(IdPersonaje);
 
         }
-        public Transformacion VerTransformacionesAjax(int IdPersonaje)
+        public List<Transformacion> VerTransformacionesAjax(int IdPersonaje)
         {
 
-        return BD.VerInfoTransformaciones(IdPersonaje); 
+        return BD.ListarTransformaciones(IdPersonaje); 
 
         }
 

@@ -28,14 +28,14 @@
       <td>@PersonajeActual.Raza</td>
       <td>@PersonajeActual.Poder</td>
       <td>@PersonajeActual.NombrePlaneta</td>
-      <td><button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#ModalHabilidad" onclick="VerListaHabilidad(@PersonajeActual.IdPersonaje)">Habilidades</button></td>
-      <td><button type="button" class="btn btn-success"  data-toggle="modal" data-target="#ModalTransformacion" onclick="VerListaTransformacion(@PersonajeActual.IdPersonaje)">Transformaciones</button></td>
+      <td><button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#ModalHabilidad" onclick="VerHabilidadesAjax(@PersonajeActual.IdPersonaje)">Habilidades</button></td>
+      <td><button type="button" class="btn btn-success"  data-toggle="modal" data-target="#ModalTransformacion" onclick="VerTransformacionesAjax(@PersonajeActual.IdPersonaje)">Transformaciones</button></td>
       <td><button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#ModalHabilidad" onclick="VerListaHabilidad(@PersonajeActual.IdPersonaje)">Modificar</button></td>
       <td><a href='@Url.Action("EliminarPersonaje","Home", new {IdSaga=@ViewBag.idSaga, IdPersonaje = @PersonajeActual.IdPersonaje})'class="btn btn-danger">Eliminar</a></td>  
 </table>
 
 }
-  <a href='@Url.Action("AgregarPersonaje","Home", new {IdSaga=@ViewBag.idSaga})' class="btn btn-primary">Agregar Jugador</a>
+  <a href='@Url.Action("AgregarPersonaje","Home", new {IdSaga=@ViewBag.idSaga})' class="btn btn-primary">Agregar Personaje</a>
 </body>
   <div class="modal fade" id="ModalHabilidad" tabindex="-1" role="dialog" aria-labelledby="ModalHabilidad" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -46,10 +46,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body text-dark" >
-      <img class="img-fluid" id="fotoHabilidad">
-      <div id="Nombre"></div>
-      <div id="Tipo"></div>
+      <div id="TextoModalHabilidades" class="modal-body text-dark">
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
