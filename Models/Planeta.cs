@@ -7,7 +7,7 @@ public class Planeta{
 
     public string _FotoPlaneta;
 
-    public string _Nombre;
+    public string _NombrePlaneta;
 
     public string _RazaHabitante;
 
@@ -18,10 +18,10 @@ public class Planeta{
         
     }
 
-    public Planeta(int IdPlaneta, string FotoPlaneta, string Nombre, string RazaHabitante, string Informacion){
+    public Planeta(int IdPlaneta, string FotoPlaneta, string NombrePlaneta, string RazaHabitante, string Informacion){
         _IdPlaneta = IdPlaneta;
         _FotoPlaneta = FotoPlaneta;
-        _Nombre = Nombre;
+        _NombrePlaneta = NombrePlaneta;
         _RazaHabitante = RazaHabitante;
         _Informacion = Informacion;
     }
@@ -36,9 +36,9 @@ public class Planeta{
         get{return _FotoPlaneta;}
     }
 
-    public string Nombre{
-    set{_Nombre = value;}
-    get{return _Nombre;}
+    public string NombrePlaneta{
+    set{_NombrePlaneta = value;}
+    get{return _NombrePlaneta;}
     }
 
     public string RazaHabitante{

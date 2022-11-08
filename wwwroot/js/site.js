@@ -27,12 +27,13 @@ function VerHabilidadesAjax(IDP)
             function(response)
             {
                 let html = "";
+                $("#ModalLargo").html(html);
                 response.forEach(habilidad => {
                     html += "<img src=/" + habilidad.fotoHabilidad + ">";
                     html += "<p>Nombre: "+ habilidad.nombre + "</p>";
                     html += "<p>Tipo: " + habilidad.tipo + "</p>";
                 });
-                $("#TextoModalHabilidades").html(html);
+                $("#ModalLargo").html(html);
             
             }
     
@@ -47,17 +48,19 @@ function VerTransformacionesAjax(IDP)
         type: 'POST',
         dataType: 'JSON',
         success:
-            function(response)
-            {
-                var transformacion = "";
-                response.forEach(element => {
-                temp += element.numeroTemporada + " " + element.tituloTemporada + "<br/>";
-      });
-                $("#Titulo").html("Temporadas: ");
-                $("#DescripcionSerie").html(temp);
+        function(response)
+        {
+            let html = "";
+            $("#ModalLargo").html(html);
+            response.forEach(transformacion => {
+                html += "<img src=/" + transformacion.fotoTransformacion + ">";
+                html += "<p>Nombre: "+ transformacion.nombre + "</p>";
+                html += "<p>Multiplicador: " + transformacion.multiplicadorPoder + "</p>";
+            });
+            $("#ModalLargo").html(html);
+        
+        }
 
-            }
-    
-    })
+})
 }
 

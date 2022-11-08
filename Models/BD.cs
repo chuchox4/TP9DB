@@ -9,7 +9,7 @@ namespace TP9.Models
 {
     public static class BD
     {
-        private static string _connectionString = @"Server=A-PHZ2-LUM-07; DataBase=BDDBTP9;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=A-PHZ2-CIDI-015; DataBase=BDDBTP9;Trusted_Connection=True;";
 
 
         public static void AgregarPersonaje(Personaje Per)
@@ -68,10 +68,10 @@ namespace TP9.Models
         public static List<Transformacion> ListarTransformaciones(int IdPersonaje)
         {
             List<Transformacion> _ListaTransformaciones = new List<Transformacion>();
-            string sql = "SELECT * FROM Habilidad WHERE IdPersonaje = @IdPersonaje";
+            string sql = "SELECT * FROM Transformacion WHERE IdPersonaje = @IdPersonaje";
             using (SqlConnection db = new SqlConnection(_connectionString))
             {
-                _ListaTransformaciones = db.Query<Transformacion>(sql, new { @IdPersonaje = IdPersonaje }).ToList();
+                _ListaTransformaciones = db.Query<Transformacion>(sql, new { IdPersonaje }).ToList();
             }
             return _ListaTransformaciones;
         }

@@ -58,3 +58,11 @@ C:\Users\46916288\Desktop\TP9DB\obj\Debug\net6.0\scopedcss\projectbundle\TP9.bun
 C:\Users\46916288\Desktop\TP9DB\obj\Debug\net6.0\TP9.csproj.CopyComplete
 C:\Users\46916288\Desktop\TP9DB\obj\Debug\net6.0\TP9.genruntimeconfig.cache
 C:\Users\46916288\Desktop\TP9DB\obj\Debug\net6.0\ref\TP9.dll
+C:\Users\47069838\TP9DB\bin\Debug\net6.0\Dapper.dll
+C:\Users\47069838\TP9DB\bin\Debug\net6.0\System.Data.SqlClient.dll
+C:\Users\47069838\TP9DB\bin\Debug\net6.0\runtimes\win-arm64\native\sni.dll
+C:\Users\47069838\TP9DB\bin\Debug\net6.0\runtimes\win-x64\native\sni.dll
+C:\Users\47069838\TP9DB\bin\Debug\net6.0\runtimes\win-x86\native\sni.dll
+C:\Users\47069838\TP9DB\bin\Debug\net6.0\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\47069838\TP9DB\bin\Debug\net6.0\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
+C:\Users\47069838\TP9DB\obj\Debug\net6.0\TP9.csproj.CopyComplete

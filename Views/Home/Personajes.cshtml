@@ -1,75 +1,57 @@
 <body>
-@foreach(Personaje PersonajeActual in @ViewBag.listaPersonajes)
-{ 
-  <table class="table table-bordered table-hover table-dark" style="color: white;">
-  <thead>
-    <tr>
-      <th scope="col">#</th>
-      <th scope="col">😎</th>
-      <th scope="col">Nombre</th>
-      <th scope="col">Genero</th>
-      <th scope="col">Fecha de nacimiento</th>
-      <th scope="col">Edad</th>
-      <th scope="col">Raza</th>
-      <th scope="col">Poder</th>
-      <th scope="col">Planeta</th>
-      <th scope="col">Habilidades</th>
-      <th scope="col">Transformaciones</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th scope="row">@PersonajeActual.IdPersonaje</th>
-      <td><img src="/@PersonajeActual.FotoPersonaje" ></td>
-      <td>@PersonajeActual.Nombre</td>
-      <td>@PersonajeActual.Genero</td>
-      <td>@PersonajeActual.FechaNacimiento.ToShortDateString()</td>
-      <td>@PersonajeActual.Edad</td>
-      <td>@PersonajeActual.Raza</td>
-      <td>@PersonajeActual.Poder</td>
-      <td>@PersonajeActual.NombrePlaneta</td>
-      <td><button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#ModalHabilidad" onclick="VerHabilidadesAjax(@PersonajeActual.IdPersonaje)">Habilidades</button></td>
-      <td><button type="button" class="btn btn-success"  data-toggle="modal" data-target="#ModalTransformacion" onclick="VerTransformacionesAjax(@PersonajeActual.IdPersonaje)">Transformaciones</button></td>
-      <td><button type="button" class="btn btn-warning"  data-toggle="modal" data-target="#ModalHabilidad" onclick="VerListaHabilidad(@PersonajeActual.IdPersonaje)">Modificar</button></td>
-      <td><a href='@Url.Action("EliminarPersonaje","Home", new {IdSaga=@ViewBag.idSaga, IdPersonaje = @PersonajeActual.IdPersonaje})'class="btn btn-danger">Eliminar</a></td>  
-</table>
+  @foreach (Personaje PersonajeActual in @ViewBag.listaPersonajes)
+  {
+    <table class="table table-bordered table-hover table-dark" style="color: white;">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">😎</th>
+          <th scope="col">Nombre</th>
+          <th scope="col">Genero</th>
+          <th scope="col">Fecha de nacimiento</th>
+          <th scope="col">Edad</th>
+          <th scope="col">Raza</th>
+          <th scope="col">Poder</th>
+          <th scope="col">Planeta</th>
+          <th scope="col">Habilidades</th>
+          <th scope="col">Transformaciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th scope="row">@PersonajeActual.IdPersonaje</th>
+          <td><img src="/@PersonajeActual.FotoPersonaje"></td>
+          <td>@PersonajeActual.Nombre</td>
+          <td>@PersonajeActual.Genero</td>
+          <td>@PersonajeActual.FechaNacimiento.ToShortDateString()</td>
+          <td>@PersonajeActual.Edad</td>
+          <td>@PersonajeActual.Raza</td>
+          <td>@PersonajeActual.Poder</td>
+          <td>@PersonajeActual.NombrePlaneta</td>
+          <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Modals" onclick="VerHabilidadesAjax(@PersonajeActual.IdPersonaje)">Habilidades</button></td>
+          <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#Modals" onclick="VerTransformacionesAjax(@PersonajeActual.IdPersonaje)">Transformaciones</button></td>
+          <td><a href='@Url.Action("EliminarPersonaje","Home", new {IdSaga=@ViewBag.idSaga, IdPersonaje = @PersonajeActual.IdPersonaje})' class="btn btn-danger">Eliminar</a></td>
+    </table>
 
-}
-  <a href='@Url.Action("AgregarPersonaje","Home", new {IdSaga=@ViewBag.idSaga})' class="btn btn-primary">Agregar Personaje</a>
+  }
+  <a href='@Url.Action("AgregarPersonaje","Home", new {IdSaga=@ViewBag.idSaga})' class="btn btn-primary">Agregar
+    Personaje</a>
+  <div class="modal fade" id="Modals" tabindex="-1" role="dialog" aria-labelledby="Modals"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-dark" id="Titulo"></h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div id="ModalLargo" class="modal-body text-dark">
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  </div>
 </body>
-  <div class="modal fade" id="ModalHabilidad" tabindex="-1" role="dialog" aria-labelledby="ModalHabilidad" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-dark" id="Titulo"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div id="TextoModalHabilidades" class="modal-body text-dark">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-  <div class="modal fade" id="ModalTransformacion" tabindex="-1" role="dialog" aria-labelledby="ModalTransformacion" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title text-dark" id="Titulo"></h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body text-dark" id ="DescripcionTransformacion">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-      </div>
-    </div>
-  </div>
-</div>
-
