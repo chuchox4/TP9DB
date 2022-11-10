@@ -9,17 +9,17 @@ public class Transformacion{
 
     public string _Nombre;
 
-    public string _MultiplicadorPoder;
+    public string _Multiplicador;
 
     public int _IdPersonaje;
 
 
-    public Transformacion (int IdTransformacion , string FotoTransformacion, string Nombre, string MultiplicadorPoder, int IdPersonaje){
+    public Transformacion (int IdTransformacion , string FotoTransformacion, string Nombre, string Multiplicador, int IdPersonaje){
 
     _IdTransformacion = IdTransformacion;
     _FotoTransformacion = FotoTransformacion;
     _Nombre = Nombre;
-    _MultiplicadorPoder = MultiplicadorPoder;
+    _Multiplicador = Multiplicador;
     _IdPersonaje = IdPersonaje;
     }
     public Transformacion ()
@@ -42,9 +42,9 @@ public class Transformacion{
         get{return _Nombre;}
     }
 
-    public string MultiplicadorPoder{
-        set{_MultiplicadorPoder = value;}
-        get{return _MultiplicadorPoder;}
+    public string Multiplicador{
+        set{_Multiplicador = value;}
+        get{return _Multiplicador;}
     }
 
     public int IdPersonaje{

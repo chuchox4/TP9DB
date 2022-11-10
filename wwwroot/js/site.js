@@ -33,6 +33,7 @@ function VerHabilidadesAjax(IDP)
                     html += "<p>Nombre: "+ habilidad.nombre + "</p>";
                     html += "<p>Tipo: " + habilidad.tipo + "</p>";
                 });
+                html +="<a href='@Url.Action('AgregarHabilidad','Home', new {IdPersonaje=@ViewBag.IdPersonaje})' class='btn btn-primary'>Agregar Habilidad</a>";
                 $("#ModalLargo").html(html);
             
             }
@@ -50,13 +51,19 @@ function VerTransformacionesAjax(IDP)
         success:
         function(response)
         {
+
             let html = "";
             $("#ModalLargo").html(html);
+            if(response.length == 0)
+            {
+                html += "<p>Este personaje no tiene transformaciones</p>";
+            }
             response.forEach(transformacion => {
                 html += "<img src=/" + transformacion.fotoTransformacion + ">";
                 html += "<p>Nombre: "+ transformacion.nombre + "</p>";
-                html += "<p>Multiplicador: " + transformacion.multiplicadorPoder + "</p>";
+                html += "<p>Multiplicador: " + transformacion.multiplicador + "</p>";
             });
+             html +="<a href='@Url.Action('AgregarHabilidad','Home', new {IdPersonaje=@ViewBag.IdPersonaje})' class='btn btn-warning'>Agregar Transformacion</a>";
             $("#ModalLargo").html(html);
         
         }

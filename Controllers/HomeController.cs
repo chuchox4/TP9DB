@@ -20,10 +20,10 @@ public class HomeController : Controller
         ViewBag.listaSagas = BD.ListarSagas();
         return View();
     }
-    public IActionResult VerPersonajes(int IdSaga, int IdPersonaje)
+    public IActionResult VerPersonajes(int IdSaga)
     {
         //BD.GetPersonajeById(IdPersonaje);
-        ViewBag.idSaga = IdSaga;
+        ViewBag.IdSaga = IdSaga;
       ViewBag.listaPersonajes = BD.ListarPersonajes(IdSaga);
       return View("Personajes"); 
     }
@@ -31,8 +31,14 @@ public class HomeController : Controller
     public IActionResult AgregarPersonaje(int IdSaga)
      {
          ViewBag.listaPlanetas = BD.TraerPlanetas();
-         ViewBag.idSaga = IdSaga;
-        return View("AgregarPersonaje");
+         ViewBag.IdSaga = IdSaga;
+         return View("AgregarPersonaje");
+     }
+     public IActionResult ModificarPersonaje(Personaje Per)
+     {
+        BD.ModificarPersonajes(Per);
+        return View("ModificarPersonaje");
+
      }
      public IActionResult GuardarPersonaje(Personaje Per, IFormFile ArchivoFoto)
         {   
@@ -48,17 +54,17 @@ public class HomeController : Controller
             
             BD.AgregarPersonaje(Per);
             ViewBag.listaPersonajes = BD.ListarPersonajes(Per.IdSaga);
-            return Redirect(Url.Action("Personajes", "Home", new {IdSaga = Per.IdSaga}));
+            return Redirect(Url.Action("VerPersonajes", "Home", new {IdSaga = Per.IdSaga}));
         }
 
     public IActionResult EliminarPersonaje(int IdPersonaje, int IdSaga)
     {
-        BD.EliminarPersonaje(IdPersonaje);
         BD.EliminarHabilidadesPersonajes(IdPersonaje);
         BD.EliminarTransformacionesPersonajes(IdPersonaje);
-        ViewBag.detalleSagas = BD.VerInfoSagas(IdSaga);
-        ViewBag.listaJugadores = BD.ListarPersonajes(IdSaga);
-        return View();
+        BD.EliminarPersonaje(IdPersonaje);
+        //ViewBag.detalleSagas = BD.VerInfoSagas(IdSaga);
+        //ViewBag.listaJugadores = BD.ListarPersonajes(IdSaga);
+        return RedirectToAction("VerPersonajes", "Home", new {IdSaga});
      }
     public Saga VerInfoSagasAjax(int IdSaga)
         {
@@ -72,7 +78,7 @@ public class HomeController : Controller
 
         }
         public List<Transformacion> VerTransformacionesAjax(int IdPersonaje)
-        {
+        {   
 
         return BD.ListarTransformaciones(IdPersonaje); 
 

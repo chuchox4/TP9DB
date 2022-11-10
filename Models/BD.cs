@@ -9,15 +9,31 @@ namespace TP9.Models
 {
     public static class BD
     {
-        private static string _connectionString = @"Server=A-PHZ2-CIDI-015; DataBase=BDDBTP9;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=A-PHZ2-CIDI-036; DataBase=BDDBTP9;Trusted_Connection=True;";
 
 
         public static void AgregarPersonaje(Personaje Per)
         {
             using (SqlConnection db = new SqlConnection(_connectionString))
             {
-                string sql = "INSERT INTO Personaje(IdPersonaje,FotoPersonaje,Nombre,Genero,FechaNacimiento,Edad,Poder,Raza,IdPlaneta,IdSaga,NombrePlaneta) VALUES(@IdPersonaje,@FotoPersonaje,@Nombre,@Genero,@FechaNacimiento,@Edad,@Poder,@Raza,@IdPlaneta,@IdSaga,@NombrePlaneta)  ";
-                db.Execute(sql, new { @IdPersonaje = Per.IdPersonaje, @FotoPersonaje = Per.FotoPersonaje, @Nombre = Per.Nombre, @Genero = Per.Genero, @FechaNacimiento = Per.FechaNacimiento, @Edad = Per.Edad, @Poder = Per.Poder, @Raza = Per.Raza, @IdPlaneta = Per.IdPlaneta, @IdSaga = Per.IdSaga, @NombrePlaneta = Per.NombrePlaneta });
+                string sql = "INSERT INTO Personaje(FotoPersonaje,Nombre,Genero,FechaNacimiento,Edad,Poder,Raza,IdPlaneta,IdSaga)VALUES(@FotoPersonaje,@Nombre,@Genero,@FechaNacimiento,@Edad,@Poder,@Raza,@IdPlaneta,@IdSaga)  ";
+                db.Execute(sql, new {  @FotoPersonaje = Per.FotoPersonaje, @Nombre = Per.Nombre, @Genero = Per.Genero, @FechaNacimiento = Per.FechaNacimiento, @Edad = Per.Edad, @Poder = Per.Poder, @Raza = Per.Raza, @IdPlaneta = Per.IdPlaneta, @IdSaga = Per.IdSaga});
+            }
+        }
+        public static void AgregarHabilidad(Habilidad Hab)
+        {
+            using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "INSERT INTO Habilidad(FotoHabilidad,Nombre,Tipo,IdPersonaje) VALUES(@FotoHabilidad,@Nombre,@Tipo,@IdPersonaje)  ";
+                db.Execute(sql, new {@FotoHabilidad = Hab.FotoHabilidad,@Nombre = Hab.Nombre,@Tipo = Hab.Tipo,@IdPersonaje = Hab.IdPersonaje});
+            }
+        }
+        public static void AgregarTransformacion(Transformacion Trans)
+        {
+            using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "INSERT INTO Transformacion(FotoTransformacion,Nombre,Multiplicador,IdPersonaje) VALUES(@FotoTransformacion,@Nombre,@Multiplicador,@IdPersonaje)  ";
+                db.Execute(sql, new {@FotoTransformacion = Trans.FotoTransformacion,@Nombre = Trans.Nombre,@Multiplicador = Trans.Multiplicador,@IdPersonaje = Trans.IdPersonaje});
             }
         }
         private static List<Saga> _ListaSagas = new List<Saga>();
@@ -143,6 +159,15 @@ namespace TP9.Models
             {
                 string sql = "DELETE FROM Transformacion WHERE IdPersonaje = @IdPersonaje";
                 db.Execute(sql, new { @IdPersonaje = IdPersonaje });
+            }
+        }
+
+        public static void ModificarPersonajes(Personaje Per)
+        {
+             using (SqlConnection db = new SqlConnection(_connectionString))
+            {
+                string sql = "UPDATE Personaje Set FotoPersonaje = @FotoPersonaje, Nombre =  @Nombre, Genero = @Genero, @FechaNacimiento = @FechaNacimiento, Edad = @Edad, Raza = @Raza , Poder = @Poder WHERE IdPersonaje = @IdPersonaje";
+                db.Execute(sql, Per);
             }
         }
 
