@@ -1,6 +1,6 @@
 <body>
     <H1>Personajes:</H1>
-  @foreach (Personaje PersonajeActual in @ViewBag.listaPersonajes)
+  @foreach (Personaje PersonajeActual in @ViewBag.listaPersonajes )
   {
     <table class="table table-bordered table-hover table-dark" style="color: white;">
       <thead>
@@ -22,15 +22,16 @@
           <td><img src="/@PersonajeActual.FotoPersonaje"></td>
           <td>@PersonajeActual.Nombre</td>
           <td>@PersonajeActual.Genero</td>
-          <td>@PersonajeActual.FechaNacimiento.ToShortDateString()</td>
+          <td>@PersonajeActual.FechaNacimiento</td>
           <td>@PersonajeActual.Edad</td>
           <td>@PersonajeActual.Raza</td>
           <td>@PersonajeActual.Poder</td>
           <td>@PersonajeActual.NombrePlaneta</td>
           <td><button type="button" class="btn btn-warning" data-toggle="modal" data-target="#Modals" onclick="VerHabilidadesAjax(@PersonajeActual.IdPersonaje)">Habilidades</button></td>
           <td><button type="button" class="btn btn-success" data-toggle="modal" data-target="#Modals" onclick="VerTransformacionesAjax(@PersonajeActual.IdPersonaje)">Transformaciones</button></td>
-          <td><a href='@Url.Action("EliminarPersonaje","Home", new {IdSaga=@ViewBag.idSaga, IdPersonaje = @PersonajeActual.IdPersonaje})' class="btn btn-danger">Eliminar</a></td>
-          <td><a href='@Url.Action("ModificarPersonaje","Home", new {IdPersonaje=@ViewBag.idSa})' class="btn btn-primary">Modificar</a></td>
+          <td><a href='@Url.Action("EliminarPersonaje","Home", new {IdSaga=@ViewBag.IdSaga, IdPersonaje = @PersonajeActual.IdPersonaje})' class="btn btn-danger">Eliminar</a></td>
+          <td><a href='@Url.Action("ModificarPersonaje","Home", new {IdPersonaje = @PersonajeActual.IdPersonaje, IdSaga=@ViewBag.IdSaga})' class="btn btn-primary">Modificar</a></td>
+          
     </table>
 
   }

@@ -1,4 +1,5 @@
-﻿using System.Diagnostics;
+﻿using System.Net;
+using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
@@ -23,7 +24,7 @@ public class HomeController : Controller
     public IActionResult VerPersonajes(int IdSaga)
     {
         //BD.GetPersonajeById(IdPersonaje);
-        ViewBag.IdSaga = IdSaga;
+      ViewBag.IdSaga = IdSaga;
       ViewBag.listaPersonajes = BD.ListarPersonajes(IdSaga);
       return View("Personajes"); 
     }
@@ -34,12 +35,34 @@ public class HomeController : Controller
          ViewBag.IdSaga = IdSaga;
          return View("AgregarPersonaje");
      }
-     public IActionResult ModificarPersonaje(Personaje Per)
+
+     public IActionResult ModificarPersonaje(int IdPersonaje, int IdSaga)
      {
-        BD.ModificarPersonajes(Per);
+        ViewBag.listaPlanetas = BD.TraerPlanetas();
+        ViewBag.IdSaga = IdSaga;
+        ViewBag.IdPersonaje = IdPersonaje;
         return View("ModificarPersonaje");
 
      }
+
+    [HttpPost]
+    public IActionResult ActualizarPersonaje(Personaje Per, IFormFile ArchivoFoto)
+    {
+        if (ArchivoFoto.Length>0)
+            {
+                string wwwRootLocal = this.Environment.ContentRootPath +  @"\wwwroot\" + ArchivoFoto.FileName;
+                using (var stream = System.IO.File.Create(wwwRootLocal))
+                {
+                    ArchivoFoto.CopyTo(stream);
+                    Per.FotoPersonaje = ArchivoFoto.FileName;
+                }
+            }
+
+        BD.ModificarPersonaje(Per);
+        return RedirectToAction("VerPersonajes", "Home", new {IdSaga = Per.IdSaga});
+    }
+
+     [HttpPost]
      public IActionResult GuardarPersonaje(Personaje Per, IFormFile ArchivoFoto)
         {   
             if (ArchivoFoto.Length>0)
@@ -53,7 +76,7 @@ public class HomeController : Controller
             }
             
             BD.AgregarPersonaje(Per);
-            ViewBag.listaPersonajes = BD.ListarPersonajes(Per.IdSaga);
+            //ViewBag.listaPersonajes = BD.ListarPersonajes(Per.IdSaga);
             return Redirect(Url.Action("VerPersonajes", "Home", new {IdSaga = Per.IdSaga}));
         }
 

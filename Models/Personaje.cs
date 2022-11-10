@@ -11,7 +11,7 @@ public class Personaje
 
     public string _Genero;
 
-    public DateTime _FechaNacimiento;
+    public string _FechaNacimiento;
 
     public int _Edad;
 
@@ -33,7 +33,7 @@ public class Personaje
     }
 
 
-    public Personaje(int IdPersonaje, string FotoPersonaje,  string Nombre, string Genero, DateTime FechaNacimiento,  int Edad, int Poder, string Raza, int IdPlaneta,int IdSaga, string NombrePlaneta){
+    public Personaje(int IdPersonaje, string FotoPersonaje,  string Nombre, string Genero, string FechaNacimiento,  int Edad, int Poder, string Raza, int IdPlaneta,int IdSaga, string NombrePlaneta){
 
         _IdPersonaje = IdPersonaje;
         _FotoPersonaje = FotoPersonaje;
@@ -67,7 +67,7 @@ public class Personaje
         set{_Genero = value;}
         get{return _Genero;}
     }
-    public DateTime FechaNacimiento{
+    public string FechaNacimiento{
         set{_FechaNacimiento = value;}
         get{return _FechaNacimiento;}
     }

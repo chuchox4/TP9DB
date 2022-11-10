@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "5wsZESD6e870iK7VshTHNQb/VCt0cw335Pi1nUeyw9w=",
+  "Hash": "SKLxniK86UX7TJDmB9WKlhumKzo7PDbKT4R8KJn5XRA=",
   "Source": "TP9",
   "BasePath": "_content/TP9",
   "Mode": "Default",
@@ -49,6 +49,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "C:\\Users\\46916288\\Desktop\\TP9DB\\obj\\Debug\\net6.0\\scopedcss\\projectbundle\\TP9.bundle.scp.css"
+    },
+    {
+      "Identity": "C:\\Users\\46916288\\Desktop\\TP9DB\\wwwroot\\avatar.jpg",
+      "SourceId": "TP9",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\46916288\\Desktop\\TP9DB\\wwwroot\\",
+      "BasePath": "_content/TP9",
+      "RelativePath": "avatar.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\avatar.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\46916288\\Desktop\\TP9DB\\wwwroot\\chucho.jfif",
+      "SourceId": "TP9",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\46916288\\Desktop\\TP9DB\\wwwroot\\",
+      "BasePath": "_content/TP9",
+      "RelativePath": "chucho.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\chucho.jfif"
     },
     {
       "Identity": "C:\\Users\\46916288\\Desktop\\TP9DB\\wwwroot\\css\\site.css",

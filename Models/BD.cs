@@ -9,7 +9,7 @@ namespace TP9.Models
 {
     public static class BD
     {
-        private static string _connectionString = @"Server=A-PHZ2-CIDI-036; DataBase=BDDBTP9;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=A-PHZ2-LUM-09; DataBase=BDDBTP9;Trusted_Connection=True;";
 
 
         public static void AgregarPersonaje(Personaje Per)
@@ -17,7 +17,8 @@ namespace TP9.Models
             using (SqlConnection db = new SqlConnection(_connectionString))
             {
                 string sql = "INSERT INTO Personaje(FotoPersonaje,Nombre,Genero,FechaNacimiento,Edad,Poder,Raza,IdPlaneta,IdSaga)VALUES(@FotoPersonaje,@Nombre,@Genero,@FechaNacimiento,@Edad,@Poder,@Raza,@IdPlaneta,@IdSaga)  ";
-                db.Execute(sql, new {  @FotoPersonaje = Per.FotoPersonaje, @Nombre = Per.Nombre, @Genero = Per.Genero, @FechaNacimiento = Per.FechaNacimiento, @Edad = Per.Edad, @Poder = Per.Poder, @Raza = Per.Raza, @IdPlaneta = Per.IdPlaneta, @IdSaga = Per.IdSaga});
+                //db.Execute(sql, new {  @FotoPersonaje = Per.FotoPersonaje, @Nombre = Per.Nombre, @Genero = Per.Genero, @FechaNacimiento = Per.FechaNacimiento, @Edad = Per.Edad, @Poder = Per.Poder, @Raza = Per.Raza, @IdPlaneta = Per.IdPlaneta, @IdSaga = Per.IdSaga});
+                db.Execute(sql, Per);
             }
         }
         public static void AgregarHabilidad(Habilidad Hab)
@@ -162,13 +163,14 @@ namespace TP9.Models
             }
         }
 
-        public static void ModificarPersonajes(Personaje Per)
+        public static Personaje ModificarPersonaje(Personaje Per)
         {
              using (SqlConnection db = new SqlConnection(_connectionString))
             {
-                string sql = "UPDATE Personaje Set FotoPersonaje = @FotoPersonaje, Nombre =  @Nombre, Genero = @Genero, @FechaNacimiento = @FechaNacimiento, Edad = @Edad, Raza = @Raza , Poder = @Poder WHERE IdPersonaje = @IdPersonaje";
+                string sql = "UPDATE Personaje Set FotoPersonaje = @FotoPersonaje, Nombre = @Nombre, Genero = @Genero, FechaNacimiento = @FechaNacimiento, Edad = @Edad, Poder = @Poder, Raza = @Raza, IdPlaneta = @IdPlaneta WHERE IdPersonaje = @IdPersonaje";
                 db.Execute(sql, Per);
             }
+            return GetPersonajeById(Per.IdPersonaje);
         }
 
 
