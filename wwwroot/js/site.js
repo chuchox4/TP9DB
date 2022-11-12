@@ -16,7 +16,7 @@
     })
 }
 
-function VerHabilidadesAjax(IDP) 
+function VerHabilidadesAjax(IDP,IDS) 
 {
     $.ajax({
         url: '/Home/VerHabilidadesAjax',
@@ -32,8 +32,9 @@ function VerHabilidadesAjax(IDP)
                     html += "<img src=/" + habilidad.fotoHabilidad + ">";
                     html += "<p>Nombre: "+ habilidad.nombre + "</p>";
                     html += "<p>Tipo: " + habilidad.tipo + "</p>";
+                    html += "<p>------------------------------------------------------------------------</p>";
                 });
-                html +="<a href='@Url.Action('AgregarHabilidad','Home', new {IdPersonaje=@ViewBag.IdPersonaje})' class='btn btn-primary'>Agregar Habilidad</a>";
+                html +="<a href=/Home/AgregarHabilidad?IdPersonaje="+IDP.toString()+"&IdSaga="+IDS.toString()+" class='btn btn-primary'>Agregar Habilidad</a>";
                 $("#ModalLargo").html(html);
             
             }
@@ -41,7 +42,7 @@ function VerHabilidadesAjax(IDP)
     })
 }
 
-function VerTransformacionesAjax(IDP) 
+function VerTransformacionesAjax(IDP,IDS) 
 {
     $.ajax({
         url: '/Home/VerTransformacionesAjax',
@@ -51,7 +52,7 @@ function VerTransformacionesAjax(IDP)
         success:
         function(response)
         {
-
+            console.log(IDS.toString());
             let html = "";
             $("#ModalLargo").html(html);
             if(response.length == 0)
@@ -62,8 +63,9 @@ function VerTransformacionesAjax(IDP)
                 html += "<img src=/" + transformacion.fotoTransformacion + ">";
                 html += "<p>Nombre: "+ transformacion.nombre + "</p>";
                 html += "<p>Multiplicador: " + transformacion.multiplicador + "</p>";
+                html += "<p>------------------------------------------------------------------------</p>";
             });
-             html +="<a href='@Url.Action('AgregarHabilidad','Home', new {IdPersonaje=@ViewBag.IdPersonaje})' class='btn btn-warning'>Agregar Transformacion</a>";
+             html +="<a href=/Home/AgregarTransformacion?IdPersonaje="+IDP.toString()+"&IdSaga="+IDS.toString()+" class='btn btn-warning'>Agregar Transformacion</a>";
             $("#ModalLargo").html(html);
         
         }

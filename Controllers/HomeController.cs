@@ -23,7 +23,6 @@ public class HomeController : Controller
     }
     public IActionResult VerPersonajes(int IdSaga)
     {
-        //BD.GetPersonajeById(IdPersonaje);
       ViewBag.IdSaga = IdSaga;
       ViewBag.listaPersonajes = BD.ListarPersonajes(IdSaga);
       return View("Personajes"); 
@@ -35,6 +34,50 @@ public class HomeController : Controller
          ViewBag.IdSaga = IdSaga;
          return View("AgregarPersonaje");
      }
+     public IActionResult AgregarHabilidad(int IdPersonaje, int IdSaga)
+     {
+         ViewBag.IdSaga = IdSaga;
+         ViewBag.IdPersonaje = IdPersonaje;
+         return View("AgregarHabilidad");
+     }
+     public IActionResult AgregarTransformacion(int IdPersonaje, int IdSaga)
+     {
+         ViewBag.IdSaga = IdSaga;
+         ViewBag.IdPersonaje = IdPersonaje;
+         return View("AgregarTransformacion");
+     }
+     [HttpPost]
+     public IActionResult GuardarHabilidad(Habilidad Hab, IFormFile ArchivoFoto,int IdSaga)
+        {   
+            if (ArchivoFoto.Length>0)
+            {
+                string wwwRootLocal = this.Environment.ContentRootPath +  @"\wwwroot\" + ArchivoFoto.FileName;
+                using (var stream = System.IO.File.Create(wwwRootLocal))
+                {
+                    ArchivoFoto.CopyTo(stream);
+                    Hab.FotoHabilidad = ArchivoFoto.FileName;
+                }
+            }
+            
+            BD.AgregarHabilidad(Hab);
+            return Redirect(Url.Action("VerPersonajes", "Home", new {IdSaga}));
+        }
+        [HttpPost]
+        public IActionResult GuardarTransformacion(Transformacion Tran, IFormFile ArchivoFoto,int IdSaga)
+        {   
+            if (ArchivoFoto.Length>0)
+            {
+                string wwwRootLocal = this.Environment.ContentRootPath +  @"\wwwroot\" + ArchivoFoto.FileName;
+                using (var stream = System.IO.File.Create(wwwRootLocal))
+                {
+                    ArchivoFoto.CopyTo(stream);
+                    Tran.FotoTransformacion = ArchivoFoto.FileName;
+                }
+            }
+            
+            BD.AgregarTransformacion(Tran);
+            return Redirect(Url.Action("VerPersonajes", "Home", new {IdSaga}));
+        }
 
      public IActionResult ModificarPersonaje(int IdPersonaje, int IdSaga)
      {

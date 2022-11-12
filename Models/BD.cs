@@ -9,7 +9,7 @@ namespace TP9.Models
 {
     public static class BD
     {
-        private static string _connectionString = @"Server=A-PHZ2-LUM-09; DataBase=BDDBTP9;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=DESKTOP-HQ9N1GM\SQLEXPRESS; DataBase=BDDBTP9;Trusted_Connection=True;";
 
 
         public static void AgregarPersonaje(Personaje Per)
@@ -17,7 +17,6 @@ namespace TP9.Models
             using (SqlConnection db = new SqlConnection(_connectionString))
             {
                 string sql = "INSERT INTO Personaje(FotoPersonaje,Nombre,Genero,FechaNacimiento,Edad,Poder,Raza,IdPlaneta,IdSaga)VALUES(@FotoPersonaje,@Nombre,@Genero,@FechaNacimiento,@Edad,@Poder,@Raza,@IdPlaneta,@IdSaga)  ";
-                //db.Execute(sql, new {  @FotoPersonaje = Per.FotoPersonaje, @Nombre = Per.Nombre, @Genero = Per.Genero, @FechaNacimiento = Per.FechaNacimiento, @Edad = Per.Edad, @Poder = Per.Poder, @Raza = Per.Raza, @IdPlaneta = Per.IdPlaneta, @IdSaga = Per.IdSaga});
                 db.Execute(sql, Per);
             }
         }

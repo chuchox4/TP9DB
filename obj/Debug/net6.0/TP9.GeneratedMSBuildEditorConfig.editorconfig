@@ -8,49 +8,57 @@ build_property.PlatformNeutralAssembly =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = TP9
 build_property.RootNamespace = TP9
-build_property.ProjectDir = C:\Users\46916288\Desktop\TP9DB\
+build_property.ProjectDir = C:\Users\lauta\Desktop\TP9DB\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\46916288\Desktop\TP9DB
+build_property.MSBuildProjectDirectory = C:\Users\lauta\Desktop\TP9DB
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/46916288/Desktop/TP9DB/Views/Home/AgregarPersonaje.cshtml]
+[C:/Users/lauta/Desktop/TP9DB/Views/Home/AgregarHabilidad.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZ3JlZ2FySGFiaWxpZGFkLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lauta/Desktop/TP9DB/Views/Home/AgregarPersonaje.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZ3JlZ2FyUGVyc29uYWplLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/46916288/Desktop/TP9DB/Views/Home/Index.cshtml]
+[C:/Users/lauta/Desktop/TP9DB/Views/Home/AgregarTransformacion.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxBZ3JlZ2FyVHJhbnNmb3JtYWNpb24uY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Users/lauta/Desktop/TP9DB/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/46916288/Desktop/TP9DB/Views/Home/ModificarPersonaje.cshtml]
+[C:/Users/lauta/Desktop/TP9DB/Views/Home/ModificarPersonaje.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNb2RpZmljYXJQZXJzb25hamUuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/46916288/Desktop/TP9DB/Views/Home/Personajes.cshtml]
+[C:/Users/lauta/Desktop/TP9DB/Views/Home/Personajes.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQZXJzb25hamVzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/46916288/Desktop/TP9DB/Views/Home/Privacy.cshtml]
+[C:/Users/lauta/Desktop/TP9DB/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/46916288/Desktop/TP9DB/Views/Shared/Error.cshtml]
+[C:/Users/lauta/Desktop/TP9DB/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/46916288/Desktop/TP9DB/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/lauta/Desktop/TP9DB/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/46916288/Desktop/TP9DB/Views/_ViewImports.cshtml]
+[C:/Users/lauta/Desktop/TP9DB/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/46916288/Desktop/TP9DB/Views/_ViewStart.cshtml]
+[C:/Users/lauta/Desktop/TP9DB/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/46916288/Desktop/TP9DB/Views/Shared/_Layout.cshtml]
+[C:/Users/lauta/Desktop/TP9DB/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-5ks5mpszoe
