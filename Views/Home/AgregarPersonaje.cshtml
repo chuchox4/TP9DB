@@ -1,3 +1,4 @@
+<body class= "bodyAgregar">
 <form class="needs-validation" method="post" action='@Url.Action("GuardarPersonaje","Home", new {IdSaga = @ViewBag.IdSaga})' enctype="multipart/form-data">
   <div class="form-group">
     <label for="formGroupExampleInput">Nombre</label>
@@ -41,6 +42,7 @@
   <input type="hidden" name = "IdPersonaje" value="@ViewBag.Personaje">
 <button type="submit" class="btn btn-primary">Crear Personaje</button>
 </form>
+</body>
 
 
 

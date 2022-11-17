@@ -1,4 +1,4 @@
-<body>
+<body class ="bodyPJ">
     <H1>Personajes:</H1>
   @foreach (Personaje PersonajeActual in @ViewBag.listaPersonajes )
   {
@@ -19,7 +19,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><img src="/@PersonajeActual.FotoPersonaje"></td>
+          <td><img style="width:100%; height=auto%" src="/@PersonajeActual.FotoPersonaje"></td>
           <td>@PersonajeActual.Nombre</td>
           <td>@PersonajeActual.Genero</td>
           <td>@PersonajeActual.FechaNacimiento.ToShortDateString()</td>

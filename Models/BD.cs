@@ -9,7 +9,7 @@ namespace TP9.Models
 {
     public static class BD
     {
-        private static string _connectionString = @"Server=DESKTOP-HQ9N1GM\SQLEXPRESS; DataBase=BDDBTP9;Trusted_Connection=True;";
+        private static string _connectionString = @"Server=A-PHZ2-CIDI-011; DataBase=BDDBTP9;Trusted_Connection=True;";
 
 
         public static void AgregarPersonaje(Personaje Per)

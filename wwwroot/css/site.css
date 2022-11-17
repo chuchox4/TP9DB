@@ -27,3 +27,13 @@ body {
   width: 8%;
   padding-left: 2%;
 }
+.bodyPJ{
+  background-image: url("/fondopersonaje.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.bodyAgregar{
+  background-image: url("/fondoAgregar.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
