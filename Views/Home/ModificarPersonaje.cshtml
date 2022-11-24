@@ -1,28 +1,28 @@
 <body class ="bodyAgregar">
-<form class="needs-validation" method="post" action='@Url.Action("ActualizarPersonaje","Home", new {IdPersonaje = @ViewBag.IdPersonaje, IdSaga = @ViewBag.IdSaga})' enctype="multipart/form-data">
+<form class="needs-validation" method="post" action='@Url.Action("ActualizarPersonaje","Home", new {IdPersonaje = @ViewBag.Personaje.IdPersonaje, IdSaga = @ViewBag.Personaje.IdSaga})' enctype="multipart/form-data">
   <div class="form-group">
     <label for="formGroupExampleInput">Nombre</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="Nombre">
+    <input type="text" class="form-control" id="formGroupExampleInput" value="@ViewBag.Personaje.Nombre" name="Nombre">
   </div>
    <div class="form-group">
     <label for="formGroupExampleInput">Genero</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="Genero">
+    <input type="text" class="form-control" id="formGroupExampleInput" value="@ViewBag.Personaje.Genero" name="Genero">
   </div>
   <div class="form-group">
     <label for="exampleInputEmail1">Fecha de nacimiento</label>
-    <input type="date" class="form-control" id="exampleInputEmail1" placeholder="" name="FechaNacimiento">
+    <input type="date" min= "0300-04-01" max="9000-04-30"  class="form-control" id="exampleInputEmail1" value="@ViewBag.Personaje.FechaNacimiento.ToShortDateString()" name="FechaNacimiento">
   </div>
    <div class="form-group">
     <label for="formGroupExampleInput">Edad</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="Edad">
+    <input type="text" class="form-control" id="formGroupExampleInput" value="@ViewBag.Personaje.Edad" name="Edad">
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput">Raza</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="Raza">
+    <input type="text" class="form-control" id="formGroupExampleInput" value="@ViewBag.Personaje.Raza" name="Raza">
   </div>
   <div class="form-group">
     <label for="formGroupExampleInput">Poder</label>
-    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="" name="Poder">
+    <input type="text" class="form-control" id="formGroupExampleInput" value="@ViewBag.Personaje.Poder" name="Poder">
   </div>
    <div class="form-group">
       <label for="inputPlaneta">Planeta</label>
@@ -30,12 +30,23 @@
         <option selected>Elegir</option>
           @foreach(Planeta opcionPlaneta in @ViewBag.listaPlanetas)
           {
-           <option value=@opcionPlaneta.IdPlaneta>
-            @opcionPlaneta.NombrePlaneta
-           </option>
+            if (opcionPlaneta.IdPlaneta== ViewBag.Personaje.IdPlaneta)
+            {
+                <option value=@opcionPlaneta.IdPlaneta selected>
+                @opcionPlaneta.NombrePlaneta
+              </option>
+            }
+            else
+            {
+                <option value=@opcionPlaneta.IdPlaneta >
+                  @opcionPlaneta.NombrePlaneta
+                </option>
+            }
+              
           }
       </select>
   <div class="form-group">
+    <input type="hidden" name="FotoPersonaje" value="@ViewBag.Personaje.FotoPersonaje"
     <label for="exampleFormControlFile1">Cambiar Foto</label>
     <input type="file" class="form-control-file" id="exampleFormControlFile1" name="ArchivoFoto">
   </div>

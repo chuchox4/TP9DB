@@ -81,9 +81,9 @@ public class HomeController : Controller
 
      public IActionResult ModificarPersonaje(int IdPersonaje, int IdSaga)
      {
+        ViewBag.Personaje = BD.GetPersonajeById(IdPersonaje);
+        
         ViewBag.listaPlanetas = BD.TraerPlanetas();
-        ViewBag.IdSaga = IdSaga;
-        ViewBag.IdPersonaje = IdPersonaje;
         return View("ModificarPersonaje");
 
      }
@@ -91,7 +91,9 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult ActualizarPersonaje(Personaje Per, IFormFile ArchivoFoto)
     {
-        if (ArchivoFoto.Length>0)
+        if (ArchivoFoto!=null)
+        {
+            if (ArchivoFoto.Length>0)
             {
                 string wwwRootLocal = this.Environment.ContentRootPath +  @"\wwwroot\" + ArchivoFoto.FileName;
                 using (var stream = System.IO.File.Create(wwwRootLocal))
@@ -100,6 +102,8 @@ public class HomeController : Controller
                     Per.FotoPersonaje = ArchivoFoto.FileName;
                 }
             }
+
+        }
 
         BD.ModificarPersonaje(Per);
         return RedirectToAction("VerPersonajes", "Home", new {IdSaga = Per.IdSaga});

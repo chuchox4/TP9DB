@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "TXbQBIfM5HxK9pna+cZ4t9snQlDNSyKwVOEGFQv8P1g=",
+  "Hash": "qWiAX1q/wEHX24VLCBPPZL3hLt4lm+CEaeBgHQju+yU=",
   "Source": "TP9",
   "BasePath": "_content/TP9",
   "Mode": "Default",
@@ -1443,6 +1443,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\NamekYFreeza.jpg"
+    },
+    {
+      "Identity": "C:\\Users\\47069838\\TP9DB\\wwwroot\\OIP.jfif",
+      "SourceId": "TP9",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\47069838\\TP9DB\\wwwroot\\",
+      "BasePath": "_content/TP9",
+      "RelativePath": "OIP.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\OIP.jfif"
     },
     {
       "Identity": "C:\\Users\\47069838\\TP9DB\\wwwroot\\PatrullaGalactica.jpg",

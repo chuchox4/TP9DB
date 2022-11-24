@@ -1,5 +1,5 @@
 <body class ="bodyPJ">
-    <H1>Personajes:</H1>
+    <H1 style="font-family: Papyrus; color: yellow;">Personajes:</H1>
   @foreach (Personaje PersonajeActual in @ViewBag.listaPersonajes )
   {
     <table class="table table-bordered table-hover table-dark" style="color: white;">
@@ -19,7 +19,7 @@
       </thead>
       <tbody>
         <tr>
-          <td><img style="width:100%; height=auto%" src="/@PersonajeActual.FotoPersonaje"></td>
+          <td class="fotoTabla"><img style=" width: 9vw%;height: 8vw;object-fit: cover;" src="/@PersonajeActual.FotoPersonaje"></td>
           <td>@PersonajeActual.Nombre</td>
           <td>@PersonajeActual.Genero</td>
           <td>@PersonajeActual.FechaNacimiento.ToShortDateString()</td>
